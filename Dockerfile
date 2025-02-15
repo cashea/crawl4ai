@@ -11,7 +11,7 @@ FROM python:${PYTHON_VERSION}-slim as base
 
 # Declare ARG variables again within the build stage
 ARG INSTALL_TYPE=all
-ARG ENABLE_GPU=false
+ARG ENABLE_GPU=true
 
 # Platform-specific labels
 LABEL maintainer="unclecode"
