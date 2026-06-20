@@ -11,7 +11,7 @@ services:
       platforms:
         - linux/amd64
     profiles: ["local-amd64"]
-    extends: &base-config
+    extends:
       file: docker-compose.yml
       service: base-config
 
@@ -26,18 +26,24 @@ services:
       platforms:
         - linux/arm64
     profiles: ["local-arm64"]
-    extends: *base-config
+    extends:
+      file: docker-compose.yml
+      service: base-config
 
   # Hub services for different platforms and versions
   crawl4ai-hub-amd64:
     image: unclecode/crawl4ai:${VERSION:-basic}-amd64
     profiles: ["hub-amd64"]
-    extends: *base-config
+    extends:
+      file: docker-compose.yml
+      service: base-config
 
   crawl4ai-hub-arm64:
     image: unclecode/crawl4ai:${VERSION:-basic}-arm64
     profiles: ["hub-arm64"]
-    extends: *base-config
+    extends:
+      file: docker-compose.yml
+      service: base-config
 
   # Base configuration to be extended
   base-config:
